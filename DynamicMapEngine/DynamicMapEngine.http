@@ -1,0 +1,6 @@
+@DynamicMapEngine_HostAddress = http://localhost:5186
+
+GET {{DynamicMapEngine_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
