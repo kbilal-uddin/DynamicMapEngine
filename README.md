@@ -5,43 +5,50 @@ DynamicMapEngine is a modular, .NET 8 API-based object mapping system that facil
 - Platform: .NET 8
 - Database: None — this project is fully in-memory and stateless.
 - Execution Model: Synchronous, as no I/O or external service dependencies are involved.
-- Architecture: Clean layered structure with Controller → Processor → Handler
+- Architecture: Clean layered structure with Controller → Processor → Handler, all wired through Dependency Injection (DI).
 - Dynamic Resolution: Uses reflection to load the appropriate mapper at runtime.
 
 This project is ideal for systems requiring flexible and extensible model transformation pipelines without tightly coupling transformation logic.
 
 ##  Features
 
--  Bi-directional mapping (e.g., Google → Internal, Internal → Google)
--  Static and dynamic validation (pre- and post-mapping)
--  Extensible mapper registry system
--  Modular, test-driven architecture
--  Ready for integration with external APIs and partners
+- Bi-directional mapping (e.g., Google → Internal, Internal → Google)
+- Static and dynamic validation (pre- and post-mapping)
+- Extensible mapper registry system
+- Modular, test-driven architecture
+- Dependency Injection enabled for flexible and testable components
+- Ready for integration with external APIs and partners
 
 ---
 
 ## Architecture Overview
 The DynamicMapEngine project is designed with clean code principles and modularity in mind. Below are the core design patterns and implementation choices:
 
-### Clean Architecture Layers
+### Clean Architecture Layers & DI
 Controller → Processor → Handler
 This separation ensures a clean flow of responsibility:
 
-- Controller receives HTTP requests.
-- Processor orchestrates mapping logic and validation.
-- Handler executes dynamic mapping logic.
+- Controller receives HTTP requests, depends on interfaces and services injected by DI.
+- Processor orchestrates mapping logic and validation, injected with handlers.
+- Handler executes dynamic mapping logic, injected into processors.
 
 ### Interface-Driven Design
-Core components (IMapHandler, IMapProcessor, IObjectMapper<TSource, TTarget>) use interfaces to enforce contracts, enable inversion of control, and improve testability.
+Core components (IMapHandler, IMapProcessor, IObjectMapper<TSource, TTarget>, IModelTypeResolver, IMapperFactory) are structured using interfaces. This promotes:
 
-### Mapper Factory
-A factory pattern (MapperFactory) is used to dynamically resolve the correct mapper implementation at runtime based on source and target types.
+- Loose coupling
+- Easier unit testing via mocks or fakes
+- Flexible swapping of implementations without code changes
+
+### Mapper Factory & Dynamic Mapping Resolution
+- The MapperFactory dynamically resolves the correct IObjectMapper<TSource, TTarget> implementation via reflection at runtime.
+- This enables plug-and-play mappers for various sources without hardcoded dependencies.
 
 ### Dynamic Mapping Resolution
 The correct IObjectMapper<TSource, TTarget> implementation is resolved dynamically via reflection at runtime, enabling plug-and-play mappers for different sources (e.g., Google, Facebook).
 
 ### Unit Testing
-Comprehensive unit tests are implemented using xUnit to validate each mapper individually and ensure coverage for invalid or edge cases.
+- Comprehensive xUnit tests cover mappers, handlers, validation, and model resolution.
+- DI enables easy mocking of dependencies for isolated tests.
 
 ### Centralized Error Handling
 A custom ExceptionHandlingMiddleware is used to handle:
