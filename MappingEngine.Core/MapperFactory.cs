@@ -7,9 +7,9 @@ using System.Reflection;
 
 namespace Mapper
 {
-    public static class MapperFactory
+    public class MapperFactory : IMapperFactory
     {
-        public static object? GetInstance(Type sourceModelType, Type targetModelType)
+        public object? GetInstance(Type sourceModelType, Type targetModelType)
         {
             var mapperType = GetMapper(sourceModelType, targetModelType);
 

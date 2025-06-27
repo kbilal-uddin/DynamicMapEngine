@@ -1,16 +1,25 @@
 ﻿using DynamicMapEngine.Interfaces;
 using Mapper;
+using Mapper.Interfaces;
 using System.Reflection;
 
 namespace DynamicMapEngine.Handler
 {
     public class MapHandler : IMapHandler
     {
+        private readonly IModelTypeResolver _typeResolver;
+        private readonly IMapperFactory _mapperFactory;
+        public MapHandler(IModelTypeResolver typeResolver, IMapperFactory mapperFactory)
+        {
+            _typeResolver = typeResolver;
+            _mapperFactory = mapperFactory;
+        }
+
         public object Map(object data, string sourceName, string targetName)
         {
-            Type _sourceType = ModelTypeResolver.ResolveType(sourceName);
-            var sourceObj = ModelTypeResolver.GetSourceObject(data, _sourceType);
-            var target = ModelTypeResolver.CreateInstance(targetName);
+            Type _sourceType = _typeResolver.ResolveType(sourceName);
+            var sourceObj = _typeResolver.GetSourceObject(data, _sourceType);
+            var target = _typeResolver.CreateInstance(targetName);
 
             DoMapping(sourceObj, ref target);
 
@@ -19,7 +28,7 @@ namespace DynamicMapEngine.Handler
 
         private void DoMapping(object source, ref object target)
         {
-            var instance = MapperFactory.GetInstance(source.GetType(), target.GetType());
+            var instance = _mapperFactory.GetInstance(source.GetType(), target.GetType());
 
             if (instance is not null)
             {

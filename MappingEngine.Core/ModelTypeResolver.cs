@@ -1,6 +1,7 @@
 ﻿using Common.Extensions;
 using Common.Utils;
 using DynamicMapEngine.Models.Internal;
+using Mapper.Interfaces;
 using System.Net;
 using System.Text.Json;
 using static Mapper.Registry.MappingRegistry;
@@ -8,7 +9,7 @@ using static Mapper.Registry.MappingRegistry;
 namespace Mapper
 {
 
-    public static class ModelTypeResolver
+    public class ModelTypeResolver : IModelTypeResolver
     {
 
         private static readonly Dictionary<string, Type> _map = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase)
@@ -21,7 +22,7 @@ namespace Mapper
             { SupportedMappings.InternalGuest.GetDescription(), typeof(Models.Internal.Guest) },
         };
 
-        public static Type ResolveType(string key)
+        public Type ResolveType(string key)
         {
             if (_map.TryGetValue(key.ToLowerInvariant(), out var type))
                 return type;
@@ -29,13 +30,13 @@ namespace Mapper
             throw new StatusCodeException(HttpStatusCode.InternalServerError, new Error { Code = ErrorCache.NoModelExists, UserMessage = ErrorCache.NoModelExistsMessage }, $"{key}");
         }
 
-        public static object CreateInstance(string key, params object[] constructorArgs)
+        public object CreateInstance(string key, params object[] constructorArgs)
         {
             var type = ResolveType(key);
             return Activator.CreateInstance(type, constructorArgs);
         }
 
-        public static object GetSourceObject(object data, Type sourceType)
+        public object GetSourceObject(object data, Type sourceType)
         {
             try
             {

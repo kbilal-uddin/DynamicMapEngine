@@ -1,8 +1,16 @@
+using DynamicMapEngine.Handler;
+using DynamicMapEngine.Interfaces;
 using DynamicMapEngine.Middleware;
+using DynamicMapEngine.Processor;
+using Mapper;
+using Mapper.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddScoped<IMapHandler, MapHandler>();
+builder.Services.AddScoped<IMapProcessor, MapProcessor>();
+builder.Services.AddSingleton<IMapperFactory, MapperFactory>();
+builder.Services.AddSingleton<IModelTypeResolver, ModelTypeResolver>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

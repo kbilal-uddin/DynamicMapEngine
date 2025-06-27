@@ -16,7 +16,7 @@ namespace DynamicMapEngine.Tests.Mappers
             var key = SupportedMappings.InternalRoom.GetDescription();
 
             // Act
-            var type = ModelTypeResolver.ResolveType(key);
+            var type = new ModelTypeResolver().ResolveType(key);
 
             // Assert
             Assert.Equal(typeof(InternalModels.Room), type);
@@ -29,7 +29,7 @@ namespace DynamicMapEngine.Tests.Mappers
             var key = "Invalid_Model";
 
             // Act & Assert
-            var ex = Assert.Throws<StatusCodeException>(() => ModelTypeResolver.ResolveType(key));
+            var ex = Assert.Throws<StatusCodeException>(() => new ModelTypeResolver().ResolveType(key));
             Assert.Contains("Model does not exists", ex.Message);
         }
 
@@ -40,7 +40,7 @@ namespace DynamicMapEngine.Tests.Mappers
             var key = SupportedMappings.InternalRoom.GetDescription();
 
             // Act
-            var instance = ModelTypeResolver.CreateInstance(key);
+            var instance = new ModelTypeResolver().CreateInstance(key);
 
             // Assert
             Assert.NotNull(instance);
@@ -54,7 +54,7 @@ namespace DynamicMapEngine.Tests.Mappers
             var key = "Invalid_Model";
 
             // Act & Assert
-            Assert.Throws<StatusCodeException>(() => ModelTypeResolver.CreateInstance(key));
+            Assert.Throws<StatusCodeException>(() => new ModelTypeResolver().CreateInstance(key));
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace DynamicMapEngine.Tests.Mappers
             var type = typeof(ExternalModels.Google.Room);
 
             // Act
-            var obj = (ExternalModels.Google.Room)ModelTypeResolver.GetSourceObject(jsonElement, type);
+            var obj = (ExternalModels.Google.Room)new ModelTypeResolver().GetSourceObject(jsonElement, type);
 
             // Assert
             Assert.NotNull(obj);
