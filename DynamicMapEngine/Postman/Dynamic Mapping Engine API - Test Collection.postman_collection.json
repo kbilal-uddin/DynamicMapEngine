@@ -1,0 +1,612 @@
+{
+	"info": {
+		"_postman_id": "a2917af9-c40a-4e0b-ba78-c26dccb228ad",
+		"name": "Dynamic Mapping Engine API - Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34581014"
+	},
+	"item": [
+		{
+			"name": "Fail",
+			"item": [
+				{
+					"name": "InvalidSourceType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"302\",\n    \"Name\": \"Deluxe Sea View\",\n    \"Capacity\": 2,\n    \"Description\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"Number\": \"D302\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=google.abc&targetType=internal.room",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "google.abc"
+								},
+								{
+									"key": "targetType",
+									"value": "internal.room"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "InvalidTargetType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"302\",\n    \"Name\": \"Deluxe Sea View\",\n    \"Capacity\": 2,\n    \"Description\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"Number\": \"D302\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=google.room&targetType=internal.abc",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "google.room"
+								},
+								{
+									"key": "targetType",
+									"value": "internal.abc"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "EmptySourceType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"302\",\n    \"Name\": \"Deluxe Sea View\",\n    \"Capacity\": 2,\n    \"Description\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"Number\": \"D302\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=&targetType=internal.abc",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": ""
+								},
+								{
+									"key": "targetType",
+									"value": "internal.abc"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "EmptyTargetType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"302\",\n    \"Name\": \"Deluxe Sea View\",\n    \"Capacity\": 2,\n    \"Description\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"Number\": \"D302\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=internal.google&targetType=",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "internal.google"
+								},
+								{
+									"key": "targetType",
+									"value": ""
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "MissmatchTargetAndSource",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"302\",\n    \"Name\": \"Deluxe Sea View\",\n    \"Capacity\": 2,\n    \"Description\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"Number\": \"D302\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=google.room&targetType=internal.guest",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "google.room"
+								},
+								{
+									"key": "targetType",
+									"value": "internal.guest"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pass",
+			"item": [
+				{
+					"name": "GoogleRoomToInternalRoom",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"302\",\n    \"Name\": \"Deluxe Sea View\",\n    \"Capacity\": 2,\n    \"Description\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"Number\": \"D302\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=google.room&targetType=internal.room",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "google.room"
+								},
+								{
+									"key": "targetType",
+									"value": "internal.room"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "InternalRoomToGoogleRoom",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RoomID\": \"302\",\n    \"RoomName\": \"Deluxe Sea View\",\n    \"NoOfPersons\": 2,\n    \"RoomDescription\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"RoomNumber\": \"D302\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=internal.room&targetType=google.room",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "internal.room"
+								},
+								{
+									"key": "targetType",
+									"value": "google.room"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "GoogleReservationToInternalReservation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Id\": 101,\n  \"GuestInfo\": {\n    \"Id\": 501,\n    \"Name\": \"John Doe\"\n  },\n  \"RoomInfo\": {\n    \"Id\": \"302\",\n    \"Name\": \"Deluxe Sea View\",\n    \"Capacity\": 2,\n    \"Description\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n    \"Number\": \"D302\"\n  },\n  \"CheckInDate\": \"2025-07-15T14:00:00\",\n  \"CheckOutDate\": \"2025-07-18T12:00:00\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=google.reservation&targetType=internal.reservation",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "google.reservation"
+								},
+								{
+									"key": "targetType",
+									"value": "internal.reservation"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "GoogleGuestToInternalGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": 501,\n    \"Name\": \"John Doe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=google.guest&targetType=internal.guest",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "google.guest"
+								},
+								{
+									"key": "targetType",
+									"value": "internal.guest"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "InternalGuestToGoogleGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"GuestId\": 501,\n    \"FullName\": \"John Doe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=internal.guest&targetType=google.guest",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "internal.guest"
+								},
+								{
+									"key": "targetType",
+									"value": "google.guest"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "InternalReservationToGoogleReservation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pass\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ReservationId\": 101,\n    \"Guest\": {\n        \"GuestId\": 501,\n        \"FullName\": \"John Doe\"\n    },\n    \"Room\": {\n        \"RoomID\": \"302\",\n        \"RoomName\": \"Deluxe Sea View\",\n        \"NoOfPersons\": 2,\n        \"RoomDescription\": \"A deluxe room with ocean view, king-size bed, and balcony.\",\n        \"RoomNumber\": \"D302\"\n    },\n    \"CheckInDate\": \"2025-07-15T14:00:00\",\n    \"CheckOutDate\": \"2025-07-18T12:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/Map?sourceType=internal.reservation&targetType=google.reservation",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"Map"
+							],
+							"query": [
+								{
+									"key": "sourceType",
+									"value": "internal.reservation"
+								},
+								{
+									"key": "targetType",
+									"value": "google.reservation"
+								}
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1",
+			"disabled": true
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:5186/"
+		}
+	]
+}
