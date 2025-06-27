@@ -1,4 +1,4 @@
-﻿namespace Mapper.Interfaces
+﻿namespace DynamicMapEngine.Mapper.Interfaces
 {
     public interface IObjectMapper<TSource, TTarget>
     {

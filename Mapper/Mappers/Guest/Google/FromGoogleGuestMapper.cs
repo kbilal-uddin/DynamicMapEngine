@@ -1,8 +1,8 @@
-﻿using Mapper.Interfaces;
-using SourceModel = Models.External.Google.Guest;
-using TargetModel = Models.Internal.Guest;
+﻿using DynamicMapEngine.Mapper.Interfaces;
+using SourceModel = DynamicMapEngine.Models.External.Google.Guest;
+using TargetModel = DynamicMapEngine.Models.Internal.Guest;
 
-namespace Mapper.Mappers.Guest.Google
+namespace DynamicMapEngine.Mapper.Mappers.Guest.Google
 {
     public class FromGoogleGuestMapper : IObjectMapper<SourceModel, TargetModel>
     {

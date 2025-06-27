@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 
-namespace Mapper.Registry
+namespace DynamicMapEngine.Mapper.Registry
 {
     public static class MappingRegistry
     {

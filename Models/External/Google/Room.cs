@@ -1,6 +1,6 @@
-﻿using Models.Attributes;
+﻿using DynamicMapEngine.Models.Attributes;
 
-namespace Models.External.Google
+namespace DynamicMapEngine.Models.External.Google
 {
     public class Room
     {

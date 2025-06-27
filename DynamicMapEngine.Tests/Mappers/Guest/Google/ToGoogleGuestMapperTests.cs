@@ -1,5 +1,5 @@
-﻿using Mapper.Mappers.Guest.Google;
-using InternalModels = Models.Internal;
+﻿using DynamicMapEngine.Mapper.Mappers.Guest.Google;
+using InternalModels = DynamicMapEngine.Models.Internal;
 
 namespace DynamicMapEngine.Tests.Mappers.Guest.Google
 {

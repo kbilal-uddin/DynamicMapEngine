@@ -1,9 +1,9 @@
-﻿using Common.Extensions;
-using Common.Utils;
+﻿using DynamicMapEngine.Common.Extensions;
+using DynamicMapEngine.Common.Utils;
 using DynamicMapEngine.Models.Internal;
-using Mapper.Registry;
+using DynamicMapEngine.Mapper.Registry;
 using System.Net;
-using static Mapper.Registry.MappingRegistry;
+using static DynamicMapEngine.Mapper.Registry.MappingRegistry;
 
 namespace DynamicMapEngine.Handler
 {

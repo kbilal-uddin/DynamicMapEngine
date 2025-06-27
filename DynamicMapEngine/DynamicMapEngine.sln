@@ -5,13 +5,13 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicMapEngine", "DynamicMapEngine.csproj", "{B2A2860E-2891-48D4-9341-6AF0FCB659F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mapper", "..\Mapper\Mapper.csproj", "{35FD17E6-E593-47CD-A8A4-F9B05A70AD72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicMapEngine.Mapper", "..\Mapper\DynamicMapEngine.Mapper.csproj", "{35FD17E6-E593-47CD-A8A4-F9B05A70AD72}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.csproj", "{B90A67C6-12EC-4F42-A500-F279457F49E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicMapEngine.Models", "..\Models\DynamicMapEngine.Models.csproj", "{B90A67C6-12EC-4F42-A500-F279457F49E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\Common\Common.csproj", "{871AD846-65E3-4322-86A3-54E006D4DC6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicMapEngine.Common", "..\Common\DynamicMapEngine.Common.csproj", "{871AD846-65E3-4322-86A3-54E006D4DC6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicMapEngine.Tests", "..\DynamicMapEngine.Tests\DynamicMapEngine.Tests.csproj", "{4337B0EB-D3D3-4797-B77E-4247B447D546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicMapEngine.Tests", "..\DynamicMapEngine.Tests\DynamicMapEngine.Tests.csproj", "{4337B0EB-D3D3-4797-B77E-4247B447D546}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

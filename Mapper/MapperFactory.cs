@@ -1,7 +1,7 @@
-﻿using Common.Extensions;
-using Common.Utils;
+﻿using DynamicMapEngine.Common.Extensions;
+using DynamicMapEngine.Common.Utils;
 using DynamicMapEngine.Models.Internal;
-using Mapper.Interfaces;
+using DynamicMapEngine.Mapper.Interfaces;
 using System.Net;
 using System.Reflection;
 

@@ -1,9 +1,9 @@
 ﻿using Mapper;
 using System.Text.Json;
-using static Mapper.Registry.MappingRegistry;
-using InternalModels = Models.Internal;
-using ExternalModels = Models.External;
-using Common.Extensions;
+using static DynamicMapEngine.Mapper.Registry.MappingRegistry;
+using InternalModels = DynamicMapEngine.Models.Internal;
+using ExternalModels = DynamicMapEngine.Models.External;
+using DynamicMapEngine.Common.Extensions;
 
 namespace DynamicMapEngine.Tests.Mappers
 {

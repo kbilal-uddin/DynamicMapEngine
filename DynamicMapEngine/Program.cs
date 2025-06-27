@@ -3,7 +3,7 @@ using DynamicMapEngine.Interfaces;
 using DynamicMapEngine.Middleware;
 using DynamicMapEngine.Processor;
 using Mapper;
-using Mapper.Interfaces;
+using DynamicMapEngine.Mapper.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

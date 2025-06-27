@@ -1,6 +1,6 @@
 ﻿using DynamicMapEngine.Interfaces;
 using Mapper;
-using Mapper.Interfaces;
+using DynamicMapEngine.Mapper.Interfaces;
 using System.Reflection;
 
 namespace DynamicMapEngine.Handler

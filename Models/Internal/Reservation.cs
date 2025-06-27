@@ -1,4 +1,4 @@
-﻿namespace Models.Internal
+﻿namespace DynamicMapEngine.Models.Internal
 {
     public class Reservation
     {

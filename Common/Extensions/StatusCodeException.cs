@@ -1,7 +1,7 @@
 ﻿using DynamicMapEngine.Models.Internal;
 using System.Net;
 
-namespace Common.Extensions
+namespace DynamicMapEngine.Common.Extensions
 {
     public class StatusCodeException : Exception
     {

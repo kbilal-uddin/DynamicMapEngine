@@ -1,5 +1,5 @@
 ﻿
-namespace Common.Utils
+namespace DynamicMapEngine.Common.Utils
 {
     public static class ErrorCache
     {

@@ -1,10 +1,10 @@
-﻿using Common.Extensions;
-using Common.Utils;
+﻿using DynamicMapEngine.Common.Extensions;
+using DynamicMapEngine.Common.Utils;
 using DynamicMapEngine.Models.Internal;
-using Mapper.Interfaces;
+using DynamicMapEngine.Mapper.Interfaces;
 using System.Net;
 using System.Text.Json;
-using static Mapper.Registry.MappingRegistry;
+using static DynamicMapEngine.Mapper.Registry.MappingRegistry;
 
 namespace Mapper
 {
@@ -14,12 +14,12 @@ namespace Mapper
 
         private static readonly Dictionary<string, Type> _map = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase)
         {
-            { SupportedMappings.GoogleRoom.GetDescription(), typeof(Models.External.Google.Room) },
-            { SupportedMappings.GoogleReservation.GetDescription(), typeof(Models.External.Google.Reservation) },
-            { SupportedMappings.GoogleGuest.GetDescription(), typeof(Models.External.Google.Guest) },
-            { SupportedMappings.InternalReservation.GetDescription(), typeof(Models.Internal.Reservation) },
-            { SupportedMappings.InternalRoom.GetDescription(), typeof(Models.Internal.Room) },
-            { SupportedMappings.InternalGuest.GetDescription(), typeof(Models.Internal.Guest) },
+            { SupportedMappings.GoogleRoom.GetDescription(), typeof(DynamicMapEngine.Models.External.Google.Room) },
+            { SupportedMappings.GoogleReservation.GetDescription(), typeof(DynamicMapEngine.Models.External.Google.Reservation) },
+            { SupportedMappings.GoogleGuest.GetDescription(), typeof(DynamicMapEngine.Models.External.Google.Guest) },
+            { SupportedMappings.InternalReservation.GetDescription(), typeof(DynamicMapEngine.Models.Internal.Reservation) },
+            { SupportedMappings.InternalRoom.GetDescription(), typeof(DynamicMapEngine.Models.Internal.Room) },
+            { SupportedMappings.InternalGuest.GetDescription(), typeof(DynamicMapEngine.Models.Internal.Guest) },
         };
 
         public Type ResolveType(string key)

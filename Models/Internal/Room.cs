@@ -1,6 +1,6 @@
-﻿using Models.Attributes;
+﻿using DynamicMapEngine.Models.Attributes;
 
-namespace Models.Internal
+namespace DynamicMapEngine.Models.Internal
 {
     public class Room
     {

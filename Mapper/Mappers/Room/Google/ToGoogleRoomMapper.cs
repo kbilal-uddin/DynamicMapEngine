@@ -1,9 +1,9 @@
-﻿using Mapper.Helper;
-using Mapper.Interfaces;
-using SourceModel = Models.Internal.Room;
-using TargetModel = Models.External.Google.Room;
+﻿using DynamicMapEngine.Mapper.Helper;
+using DynamicMapEngine.Mapper.Interfaces;
+using SourceModel = DynamicMapEngine.Models.Internal.Room;
+using TargetModel = DynamicMapEngine.Models.External.Google.Room;
 
-namespace Mapper.Mappers.Room.Google
+namespace DynamicMapEngine.Mapper.Mappers.Room.Google
 {
     public class ToGoogleRoomMapper : IObjectMapper<SourceModel, TargetModel>
     {

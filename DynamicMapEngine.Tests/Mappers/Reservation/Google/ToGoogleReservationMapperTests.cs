@@ -1,6 +1,6 @@
-﻿using Common.Extensions;
-using Mapper.Mappers.Reservation.Google;
-using InternalModels = Models.Internal;
+﻿using DynamicMapEngine.Common.Extensions;
+using DynamicMapEngine.Mapper.Mappers.Reservation.Google;
+using InternalModels = DynamicMapEngine.Models.Internal;
 
 namespace DynamicMapEngine.Tests.Mappers.Reservation.Google
 {

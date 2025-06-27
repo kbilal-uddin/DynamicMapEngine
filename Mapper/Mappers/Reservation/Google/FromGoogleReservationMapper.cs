@@ -1,9 +1,9 @@
-﻿using Mapper.Helper;
-using Mapper.Interfaces;
-using SourceModel = Models.External.Google.Reservation;
-using TargetModel = Models.Internal.Reservation;
+﻿using DynamicMapEngine.Mapper.Helper;
+using DynamicMapEngine.Mapper.Interfaces;
+using SourceModel = DynamicMapEngine.Models.External.Google.Reservation;
+using TargetModel = DynamicMapEngine.Models.Internal.Reservation;
 
-namespace Mapper.Mappers.Reservation.Google
+namespace DynamicMapEngine.Mapper.Mappers.Reservation.Google
 {
     public class FromGoogleReservationMapper : IObjectMapper<SourceModel, TargetModel>
     {

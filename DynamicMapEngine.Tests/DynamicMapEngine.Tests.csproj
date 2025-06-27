@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -18,8 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DynamicMapEngine\DynamicMapEngine.csproj" />
-    <ProjectReference Include="..\Mapper\Mapper.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Mapper\DynamicMapEngine.Mapper.csproj" />
+    <ProjectReference Include="..\Models\DynamicMapEngine.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
