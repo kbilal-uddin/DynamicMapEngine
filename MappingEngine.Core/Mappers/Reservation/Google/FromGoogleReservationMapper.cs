@@ -19,7 +19,7 @@ namespace Mapper.Mappers.Reservation.Google
 
             #endregion
 
-            return new TargetModel
+            var result = new TargetModel
             {
                 ReservationId = source.Id,
                 CheckInDate = source.CheckInDate,
@@ -27,6 +27,10 @@ namespace Mapper.Mappers.Reservation.Google
                 Guest = source.GuestInfo is not null ? new Guest.Google.FromGoogleGuestMapper().Map(source.GuestInfo) : null,
                 Room = source.RoomInfo is not null ? new Room.Google.FromGoogleRoomMapper().Map(source.RoomInfo) : null
             };
+
+            ValidationHelper.ValidateRequiredProperties(result);
+
+            return result;
 
         }
     }

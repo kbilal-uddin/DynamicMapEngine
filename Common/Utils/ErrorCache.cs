@@ -24,6 +24,9 @@ namespace Common.Utils
         public static string RequiredField = "1000007";
         public static string RequiredFieldMessage = "Invalid input: {0} is required and cannot be null or empty.";
 
+        public static string InvalidModelFormat = "1000008";
+        public static string InvalidModelFormatMessage = "Unable to convert provided data to {0}";
+
 
 
     }

@@ -19,7 +19,8 @@ namespace Mapper.Mappers.Room.Google
             ValidationHelper.ValidateRequiredProperties(source);
 
             #endregion
-            return new TargetModel
+
+            var result = new TargetModel
             {
                 Id = source.RoomID,
                 Name = source.RoomName,
@@ -27,6 +28,10 @@ namespace Mapper.Mappers.Room.Google
                 Capacity = source.NoOfPersons,
                 Number = source.RoomNumber
             };
+
+            ValidationHelper.ValidateRequiredProperties(result);
+
+            return result;
         }
     }
 }

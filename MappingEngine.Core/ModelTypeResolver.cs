@@ -44,7 +44,7 @@ namespace Mapper
                 if (sourceObj is not null)
                     return sourceObj;
                 else
-                    throw new InvalidCastException($"Unable to convert provided data to {sourceType.FullName}.");
+                    throw new StatusCodeException(HttpStatusCode.InternalServerError, new Error { Code = ErrorCache.InvalidModelFormat, UserMessage = ErrorCache.InvalidModelFormatMessage }, $"{sourceType.FullName}");
             }
             catch
             {

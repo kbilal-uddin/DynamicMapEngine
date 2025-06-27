@@ -19,7 +19,7 @@ namespace Mapper.Mappers.Room.Google
 
             #endregion
 
-            return new TargetModel
+            var result = new TargetModel
             {
                 RoomID = source.Id,
                 RoomName = source.Name,
@@ -28,6 +28,9 @@ namespace Mapper.Mappers.Room.Google
                 RoomNumber = source.Number
             };
 
+            ValidationHelper.ValidateRequiredProperties(result);
+
+            return result;
         }
     }
 }
