@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DynamicMapEngine\DynamicMapEngine.csproj" />
-    <ProjectReference Include="..\MappingEngine.Core\Mapper.csproj" />
+    <ProjectReference Include="..\Mapper\Mapper.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
