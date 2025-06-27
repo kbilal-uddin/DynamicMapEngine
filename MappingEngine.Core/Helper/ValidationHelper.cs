@@ -10,7 +10,8 @@ namespace Mapper.Helper
     {
         public static void ValidateRequiredProperties(object obj)
         {
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
+            if (obj is null)
+                throw new StatusCodeException(HttpStatusCode.InternalServerError, new Error { Code = "", UserMessage = "Unknow error" });
 
             var type = obj.GetType();
 

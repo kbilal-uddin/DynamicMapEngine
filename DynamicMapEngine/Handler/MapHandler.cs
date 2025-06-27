@@ -1,5 +1,6 @@
 ﻿using DynamicMapEngine.Interfaces;
 using Mapper;
+using System.Reflection;
 
 namespace DynamicMapEngine.Handler
 {
@@ -29,7 +30,16 @@ namespace DynamicMapEngine.Handler
                 if (mapMethod is not null)
                 {
                     var parameters = new object[] { source };
-                    target = mapMethod.Invoke(instance, parameters);
+
+                    try
+                    {
+                        target = mapMethod.Invoke(instance, parameters);
+                    }
+                    catch (TargetInvocationException ex)
+                    {
+                        throw ex.InnerException ?? ex; 
+                    }
+
                 }
             }
         }

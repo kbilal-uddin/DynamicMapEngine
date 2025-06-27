@@ -10,13 +10,13 @@ namespace Mapper.Registry
             #region INTERNAL
 
             [Description("internal.reservation")]
-            INTERNAL_RESERVATION,
+            InternalReservation,
 
             [Description("internal.room")]
-            INTERNAL_ROOM,
+            InternalRoom,
 
             [Description("internal.guest")]
-            INTERNAL_GUEST,
+            InternalGuest,
 
             #endregion
 
@@ -25,13 +25,13 @@ namespace Mapper.Registry
             #region Google
 
             [Description("google.reservation")]
-            GOOGLE_RESERVATION,
+            GoogleReservation,
 
             [Description("google.room")]
-            GOOGLE_ROOM,
+            GoogleRoom,
 
             [Description("google.guest")]
-            GOOGLE_GUEST,
+            GoogleGuest,
 
             #endregion
 

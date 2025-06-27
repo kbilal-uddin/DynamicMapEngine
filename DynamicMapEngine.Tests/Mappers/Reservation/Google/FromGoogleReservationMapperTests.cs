@@ -21,7 +21,7 @@ namespace DynamicMapEngine.Tests.Mappers.Reservation.Google
                 },
                 RoomInfo = new GoogleModels.Room
                 {
-                    Id = "",
+                    Id = "12",
                     Name = "Deluxe Sea View",
                     Capacity = 1,
                     Description = "A deluxe room with ocean view, king-size bed, and balcony.",
@@ -45,7 +45,7 @@ namespace DynamicMapEngine.Tests.Mappers.Reservation.Google
             Assert.Equal("John Doe", result.Guest.FullName);
 
             Assert.NotNull(result.Room);
-            Assert.Equal("", result.Room.RoomID);
+            Assert.Equal("12", result.Room.RoomID);
             Assert.Equal("Deluxe Sea View", result.Room.RoomName);
             Assert.Equal(1, result.Room.NoOfPersons);
             Assert.Equal("A deluxe room with ocean view, king-size bed, and balcony.", result.Room.RoomDescription);
