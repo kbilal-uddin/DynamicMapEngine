@@ -1,8 +1,14 @@
 #  DynamicMapEngine
+DynamicMapEngine is a modular, .NET 8 API-based object mapping system that facilitates safe and predictable transformations between external (e.g., third-party or partner) models and internal domain models — and vice versa.
 
-**DynamicMapEngine** is a modular, .NET-based object mapping system that facilitates safe and predictable transformations between external (e.g., third-party or partner) models and internal domain models — and vice versa.
+## Technical Overview
+- Platform: .NET 8
+- Database: None — this project is fully in-memory and stateless.
+- Execution Model: Synchronous, as no I/O or external service dependencies are involved.
+- Architecture: Clean layered structure with Controller → Processor → Handler
+- Dynamic Resolution: Uses reflection to load the appropriate mapper at runtime.
 
----
+This project is ideal for systems requiring flexible and extensible model transformation pipelines without tightly coupling transformation logic.
 
 ##  Features
 
@@ -14,10 +20,52 @@
 
 ---
 
-## Project Structure
+## Architecture Overview
+The DynamicMapEngine project is designed with clean code principles and modularity in mind. Below are the core design patterns and implementation choices:
 
+### Clean Architecture Layers
+Controller → Processor → Handler
+This separation ensures a clean flow of responsibility:
 
+- Controller receives HTTP requests.
+- Processor orchestrates mapping logic and validation.
+- Handler executes dynamic mapping logic.
+
+### Interface-Driven Design
+Core components (IMapHandler, IMapProcessor, IObjectMapper<TSource, TTarget>) use interfaces to enforce contracts, enable inversion of control, and improve testability.
+
+### Mapper Factory
+A factory pattern (MapperFactory) is used to dynamically resolve the correct mapper implementation at runtime based on source and target types.
+
+### Dynamic Mapping Resolution
+The correct IObjectMapper<TSource, TTarget> implementation is resolved dynamically via reflection at runtime, enabling plug-and-play mappers for different sources (e.g., Google, Facebook).
+
+### Unit Testing
+Comprehensive unit tests are implemented using xUnit to validate each mapper individually and ensure coverage for invalid or edge cases.
+
+### Centralized Error Handling
+A custom ExceptionHandlingMiddleware is used to handle:
+
+- Known application exceptions (e.g., invalid model input)
+- Unhandled runtime exceptions (to prevent leaking stack traces)
+
+### Postman Collection
+A Postman collection is included for end-to-end testing of API endpoints, covering major input scenarios. See Postman/Dynamic Mapping Engine API - Test Collection.postman_collection.json for API examples and payload structures.
+
+### Key Benefits
+- Extensible: Easily add new mappers or source systems.
+- Clean and maintainable codebase.
+- Testable by design, from unit to integration level.
+- Dynamic yet safe mapping resolution using reflection + validation.
 ---
+
+## Design Assumptions
+The dynamic factory pattern (powered by reflection) is implemented with the assumption that the system will eventually support hundreds of mappers across various partner models and internal domains.
+
+This design ensures:
+- Scalability: New mappers can be added without modifying core logic.
+- Loose coupling: No hard-coded references to mapper classes.
+- Plug-and-play extensibility: Simply implement IObjectMapper<TSource, TTarget> and register the models — the factory handles the rest.
 
 ## Mapping Workflow
 
@@ -25,16 +73,6 @@ Example Use Cases
 - Transform guest/reservation/room data from Google APIs to internal models.
 - Validate and sanitize incoming payloads before saving or processing.
 - Easily extendable for new partners or mapping targets.
-
-## Testing
-Unit tests are organized by:
-
-- Domain (Guest, Room, Reservation)
-- Direction (From / To)
-- Run tests via Visual Studio Test Explorer or dotnet test CLI.
-
-## Postman Collection
-See Postman/Dynamic Mapping Engine API - Test Collection.postman_collection.json for API examples and payload structures.
 
 ## Adding Support for a New Mapping
 ### 1. Define Models
