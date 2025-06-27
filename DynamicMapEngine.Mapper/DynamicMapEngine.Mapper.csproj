@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\DynamicMapEngine.Common.csproj" />
-    <ProjectReference Include="..\Models\DynamicMapEngine.Models.csproj" />
+    <ProjectReference Include="..\DynamicMapEngine.Common\DynamicMapEngine.Common.csproj" />
+    <ProjectReference Include="..\DynamicMapEngine.Models\DynamicMapEngine.Models.csproj" />
   </ItemGroup>
 
 </Project>

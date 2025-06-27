@@ -18,8 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DynamicMapEngine\DynamicMapEngine.csproj" />
-    <ProjectReference Include="..\Mapper\DynamicMapEngine.Mapper.csproj" />
-    <ProjectReference Include="..\Models\DynamicMapEngine.Models.csproj" />
+    <ProjectReference Include="..\DynamicMapEngine.Mapper\DynamicMapEngine.Mapper.csproj" />
+    <ProjectReference Include="..\DynamicMapEngine.Models\DynamicMapEngine.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

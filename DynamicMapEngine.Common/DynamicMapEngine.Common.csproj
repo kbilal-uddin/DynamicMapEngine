@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\DynamicMapEngine.Models.csproj" />
+    <ProjectReference Include="..\DynamicMapEngine.Models\DynamicMapEngine.Models.csproj" />
   </ItemGroup>
 
 </Project>
