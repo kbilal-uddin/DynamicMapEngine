@@ -1,4 +1,8 @@
-﻿using Models.Attributes;
+﻿using Common.Extensions;
+using Common.Utils;
+using DynamicMapEngine.Models.Internal;
+using Models.Attributes;
+using System.Net;
 
 namespace Mapper.Helper
 {
@@ -16,7 +20,8 @@ namespace Mapper.Helper
                 {
                     var value = prop.GetValue(obj);
                     if (value == null || value.Equals(GetDefault(prop.PropertyType)) || (value is string str && string.IsNullOrWhiteSpace(str)))
-                        throw new ArgumentException($"{prop.Name} is required and cannot be null or empty.");
+                        throw new StatusCodeException(HttpStatusCode.BadRequest,
+                            new Error { Code = ErrorCache.RequiredField, UserMessage = ErrorCache.RequiredFieldMessage }, $"{prop.Name}" );
                 }
             }
         }

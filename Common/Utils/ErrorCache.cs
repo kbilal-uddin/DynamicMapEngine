@@ -20,8 +20,11 @@ namespace Common.Utils
 
         public static string NoMatchingMapper = "1000006";
         public static string NoMatchingMapperMessage = "No matching mapper found for Source Type '{0}' and Target Type '{1}'. Please ensure the appropriate mapper exists.";
-       
 
-        
+        public static string RequiredField = "1000007";
+        public static string RequiredFieldMessage = "Invalid input: {0} is required and cannot be null or empty.";
+
+
+
     }
 }
