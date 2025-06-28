@@ -25,12 +25,14 @@ This project is ideal for systems requiring flexible and extensible model transf
 The DynamicMapEngine project is designed with clean code principles and modularity in mind. Below are the core design patterns and implementation choices:
 
 ### Clean Architecture Layers & DI
-Controller → Processor → Handler
+Controller → Processor → Handler → Mapper
 This separation ensures a clean flow of responsibility:
 
-- Controller receives HTTP requests, depends on interfaces and services injected by DI.
-- Processor orchestrates mapping logic and validation, injected with handlers.
-- Handler executes dynamic mapping logic, injected into processors.
+- Controller receives HTTP requests and forwards them to the Processor for processing.
+- Processor acts as an orchestrator, coordinating the workflow and forwarding the request to Handlers one by one.
+- Handler executes the dynamic mapping logic.
+- Factory inside the Handler decides which Mapper to use.
+- Mapper performs the actual mapping.
 
 ### Interface-Driven Design
 Core components (IMapHandler, IMapProcessor, IObjectMapper<TSource, TTarget>, IModelTypeResolver, IMapperFactory) are structured using interfaces. This promotes:
